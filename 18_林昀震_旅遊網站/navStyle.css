@@ -1,0 +1,39 @@
+
+/*黑底*/
+.navBar {
+    list-style-type: lower-latin;
+    text-align: right;
+    background-color: #000000;
+    font-size: 23px;
+    font-style: italic;
+    border-radius: 10px;
+}
+
+.navBar li {
+    display: inline-table;
+
+    padding: 10px;
+
+    
+}
+/*滑鼠過去會變灰色*/
+.navBar li:hover {
+    background-color: #d08f8f;
+    text-shadow: #d08f8f;
+     font-weight: bold;
+     color: yellow;
+}
+/*裡面的字*/
+.navBar li a {
+    color: yellow;
+    text-align: right;
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+    
+}
+
+.navBar li a:active {
+            color: yellow;
+        }
+
+

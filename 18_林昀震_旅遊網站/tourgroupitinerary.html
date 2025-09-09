@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>itinerary</title>
+    <link rel="iconofourgrouplogo" href="./82038251-075E-40B9-9C1F-00B631837A95.PNG">
+    <link rel="stylesheet" href="./bootstrap.css">
+    <link rel="stylesheet" href="./bootstrap.bundle.js">
+    <link rel="stylesheet" href="./bootstrap.bundle.min.js"> 
+
+<style>
+
+ /* 自訂按鈕：平常黃底黑字，無邊框 */
+.navbar .btn-custom {
+  background-color: #e5e5c4;
+  color: black;
+  border: none;
+  margin-left: 5px;
+}
+/* 滑過：背景稍微深一點 */
+.navbar .btn-custom:hover {
+  background-color: #dcd3b2;
+  color: black;
+}
+/* 點擊(active)時才出現黑邊框 */
+.navbar .btn-custom:active,
+.navbar .btn-custom:focus {
+  border: 2px solid #dcd3b2;
+  box-shadow: none; /* 去掉 Bootstrap 預設藍色外框 */
+}
+
+.black-text {
+    color: #000000;  /* 最黑 */
+    font-weight: bold; /* 可選：讓文字更明顯 */
+}
+
+.transparent-row {
+  opacity: 0.03;
+}
+
+.table-container {
+  width: 80%;          
+  margin: 0 auto;      
+  background-color: rgba(240, 200, 135, 0.3); /* 半透明咖啡色 */
+  border-radius: 13px;       
+  padding: 10px;             
+  overflow: hidden; 
+           
+}
+table {
+  width: 100%;          /* 讓表格佔滿容器 */
+  border-collapse: collapse;
+  border: none;  
+}
+td, th {
+  padding: 8px;
+  background-color: #e5e5c4 ;  /* 單格背景 */
+  border: 1px solid #ddd;   /* 可選邊框 */
+  border: none;  
+  border-radius: 15px;
+}
+
+p {
+margin: 3px; font-size: 8px; text-align: center;
+}
+
+#contactBtn {
+      position: fixed;
+      right: 18px;
+      top: 60vh;              /* 視窗高度的 60% */
+      transform: translateY(-50%);
+      padding: 10px 5px;     /* 你指定的樣式 */
+      width: 50px;
+      font-size: 16px;
+      z-index: 1050;          /* 高於一般內容 */
+      opacity: 0;             /* 初始隱藏 */
+      pointer-events: none;   /* 隱藏時不能點 */
+      transition: opacity .25s ease;
+      writing-mode: vertical-rl;  /* 直排文字像側邊籤 */
+      text-orientation: mixed;
+}
+#contactBtn.show {
+      opacity: 1;
+      pointer-events: auto;
+}
+
+
+#backToTop {
+position: fixed;
+bottom: 20px;   
+right: 20px;    
+text-decoration: none; 
+background: black;      
+padding: 10px 10px;     
+border-radius: 7px;    
+}
+#backToTop:hover {
+background: orange;     
+color: white;
+}
+
+
+body {
+  position: relative;   /* 設定定位，讓 ::before 可以絕對定位 */
+  min-height: 100vh;    /* 確保頁面高度 */
+  margin: 0;
+  z-index: 0;
+}
+body::before {
+  content: "";
+  position: fixed;      /* 固定在視窗，不會跟文字一起滾動 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(./airplane.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.1;         /* 透明度 10%，像浮水印 */
+  z-index: -1;           /* 放到文字後面 */
+}
+</style>
+
+</head>
+<body class="bg-light">
+<nav class="navbar fixed-top navbar-expand-lg" style="background-color: #e5e5c4; opacity: 0.7;">
+  <div class="container-fluid">
+    <!-- 左側公司名稱 -->
+    <button class="navbar-brand fw-bold btn btn-custom black-text" onclick="location.href='http://127.0.0.1:5500/tourgrouptheme.html'">123YES TOUR</button>
+
+    <!-- 右側按鈕（改成連結外部網址） -->
+    <div class="d-flex ms-auto">
+      <button class="btn btn-custom black-text" onclick="location.href='http://127.0.0.1:5500/tourgroupspots.html'">景點</button>
+      <button class="btn btn-custom black-text" onclick="location.href='http://127.0.0.1:5500/tourgroupitinerary.html'">旅程規劃</button>
+      <button class="btn btn-custom black-text" onclick="location.href='http://127.0.0.1:5500/tourgrouporder.html'">聯絡表單</button>
+      <button class="btn btn-custom black-text" onclick="location.href='http://127.0.0.1:5500/tourgroupaboutus.html'">Q&A</button>
+    </div>
+  </div>
+</nav>
+<br><br><br><br><br>
+<h3 style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">必去景點</h3>
+<br><br>
+<div class="row table-container bg-transparent">
+        <div class="col-4 "><figure class="figure figure-img">
+        <img class="img-fluid figure-img" style="border-radius: 10px;" src="./pelescastle.jpg" >
+        <figcaption class="figure-caption" style="font-family: cursive;">佩雷斯城堡 Peleș Castle<br><br>世界第六壯觀城堡</figcaption>
+     </figure>
+    </div>
+        <div class="col-4"><figure class="figure figure-img">
+        <img class="img-fluid figure-img " style="border-radius: 10px;" src="./brancastle.jpg" >
+        <figcaption class="figure-caption" style="font-family: cursive;">亞歷山大·涅夫斯基主教座堂<br><br>巴爾幹半島最美麗教堂</figcaption>
+     </figure>
+    </div>
+        <div class="col-4"><figure class="figure figure-img">
+        <img class="img-fluid figure-img" style="border-radius: 10px;" src="./russianstylechurch.jpg" >
+        <figcaption class="figure-caption" style="font-family: cursive;">布朗城堡Bran Castle<br><br>傳說中吸血鬼城堡</figcaption>
+     </figure>
+    </div>
+     </div>
+<br><br><br>
+<div class="row table-container bg-transparent">
+        <div class="col-4"><figure class="figure figure-img">
+        <img class="img-fluid figure-img" style="border-radius: 10px;" src="./gala.jpg" >
+        <figcaption class="figure-caption" style="font-family: cursive;">格拉恰尼察修道院<br><br>科索沃文化遺產必訪之地</figcaption>
+     </figure>
+    </div>
+        <div class="col-4"><figure class="figure figure-img">
+        <img class="img-fluid figure-img" style="border-radius: 10px;" src="./ohrid.jpg" >
+        <figcaption class="figure-caption" style="font-family: cursive;">奧赫里德 Ohrid<br><br>巴爾幹的耶路撒冷</figcaption>
+     </figure>
+    </div>
+        <div class="col-4"><figure class="figure figure-img">
+        <img class="img-fluid figure-img" style="border-radius: 10px;" src="./lila.jpg" >
+        <figcaption class="figure-caption" style="font-family: cursive;">里拉修道院<br><br>東歐的彩繪東正教聖地之一</figcaption>
+     </figure>
+    </div>
+     </div>
+
+<br><br><br><br>
+<h3 style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">行程表</h3>
+<br><br>
+
+<div class="table-container bg-transparent">
+  <table class="table table-hover"  >
+  <thead>
+    <tr>
+      <th scope="col">Day</th>
+      <th scope="col">行程</th>
+      <th scope="col">餐食</th>
+      <th scope="col">住宿</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="transparent-row">
+      <th scope="row"><br></th>
+      <td scope="col"><br></td>
+      <td scope="col"><br></td>
+      <td scope="col"><br></td>
+    </tr>
+    <tr class=" black-text shadow-lg">
+      <th scope="row" class="bg-light">第一天</th>
+      <td scope="col" class="bg-light">♦ 抵達當地、入住飯店，稍作休息<br><br>♦ 漫步市中心廣場，熟悉周邊環境<br><br>♦ 晚餐享用當地特色料理</td>
+      <td scope="col" class="bg-light">早餐:自理<br><br>午餐:自理<br><br>晚餐:西式</td>
+      <td scope="col" class="bg-light">Hotel Tino 或同級</td>
+    </tr>
+    <tr class="transparent-row">
+      <th scope="row"><br><br></th>
+      <td scope="col"><br><br></td>
+      <td scope="col"><br><br></td>
+      <td scope="col"><br><br></td>
+    </tr>
+    <tr class=" black-text shadow-lg">
+      <th scope="row" class="bg-light">第二天</th>
+      <td scope="col" class="bg-light">♦ 參觀著名古蹟或博物館，如城堡 / 宮殿 <br><br>♦ 漫步老城街道，欣賞歷史建築<br><br>♦ 下午咖啡廳小憩，體驗當地生活氛圍</td>
+      <td scope="col" class="bg-light">早餐:飯店自助式<br><br>午餐:機上<br><br>晚餐:西式</td>
+      <td scope="col" class="bg-light">Best Western Hotel Turist 或同級</td>
+    </tr>
+    <tr class="transparent-row">
+      <th scope="row"><br><br></th>
+      <td scope="col"><br><br></td>
+      <td scope="col"><br><br></td>
+      <td scope="col"><br><br></td>
+    </tr>
+    <tr class=" black-text shadow-lg">
+      <th scope="row">第三天</th>
+      <td scope="col">♦ 上午前往郊區景點（湖泊 / 山區 / 溪谷）<br><br>♦ 輕鬆健行或騎腳踏車活動<br><br>♦ 下午返回市區，逛市集或手工藝品店<br><br>♦ 晚餐安排當地風味餐廳，享受悠閒夜晚</td>
+      <td scope="col">早餐:飯店自助式<br><br>午餐:西式<br><br>晚餐:西式</td>
+      <td scope="col">Amalia Hotel Kalambaka 或同級</td>
+    </tr>
+    <tr class="transparent-row">
+      <th scope="row"><br><br></th>
+      <td scope="col"><br><br></td>
+      <td scope="col"><br><br></td>
+      <td scope="col"><br><br></td>
+   </tr>
+    <tr class=" black-text shadow-lg">
+      <th scope="row">第四天</th>
+      <td scope="col">♦ 早餐後輕鬆安排行程<br><br>♦ 上午可選擇購物、參觀小型景點或咖啡館小憩<br><br>♦ 下午自由活動，可安排溫泉、SPA 或在公園散步<br><br>♦ 晚餐後可逛夜市或體驗當地夜生活<br></td>
+      <td scope="col">早餐:自理<br><br><br><br>午餐:中式<br><br><br><br>晚餐:西式</td>
+      <td scope="col">Ibis Skopje City Center 或同級</td>
+    <tr class="transparent-row">
+      <th scope="row"><br><br></th>
+      <td scope="col"><br><br></td>
+      <td scope="col"><br><br></td>
+      <td scope="col"><br><br></td>
+    </tr>
+<tr class="black-text shadow-lg">
+      <th scope="row">第五天</th>
+      <td scope="col">♦ 早餐後整理行李<br><br>♦ 前往機場 / 車站<br><br>♦ 平安返家</td>
+      <td scope="col">早餐:飯店自助式<br><br>午餐:西式<br><br>晚餐:機上<br><br><br><br><br></td>
+      <td scope="col">溫暖的家</td>
+    </tr>
+ </tbody>
+ </table>
+</div>
+<br><br><br><br>
+<h3 style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">本團特色</h3>
+<br><br>
+<iframe style="margin-left: 85px; margin-right: 50px;" width="660" height="360" src="https://www.youtube.com/embed/wzzHM2GfBqA" title="【巴爾幹半島五國 Balkans】十六湖的本名是什麼呢？暢遊CNN推薦的一生必去景點｜克羅埃西亞｜羅斯托克｜札格雷布" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+<br><br><br><br>
+<div class="row table-container bg-transparent">
+        <div class="col-6"><figure class="figure figure-img">
+        <img class="img-fluid figure-img" style="border-radius: 10px;" src="./lakeinspring.jpg" >
+        <figcaption class="figure-caption" style="font-family: cursive; font-size: medium;">春天的十六湖</figcaption>
+     </figure>
+    </div>
+        <div class="col-6"><figure class="figure figure-img">
+        <img class="img-fluid figure-img " style="border-radius: 10px;" src="./lakeinwinter.jpeg" >
+        <figcaption class="figure-caption" style="font-family: cursive; font-size: medium;">冬天的十六湖</figcaption>
+     </figure>
+    </div>
+  </div>
+<br>
+<div class="row table-container bg-transparent">
+        <div class="col-3"></div>
+        <div class="col-6"><figure class="figure figure-img">
+        <img class="img-fluid figure-img" style="border-radius: 10px;" src="./thelakeshootbydrones.jpg" >
+        <figcaption class="figure-caption" style="font-family: cursive; font-size:medium;">空拍機鏡頭下的十六湖</figcaption>
+     </figure>
+    </div>
+      <div class="col-3"></div>
+  </div>
+<br><br><br><br>
+<h3 style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">注意事項</h3>
+<br><br>
+<div class="table-container bg-transparent">
+  <table class="table table-hover"  >
+  <thead>
+    <tr>
+      <th scope="col" style="text-align: left; font-family: cursive;">
+為了您在本次旅遊途中本身的安全，我們特別請您遵守下列事項，這是我們應盡告知的責任，也是保障您的權益。<br><br>
+
+1. 若有行動不便、慢性疾病、年滿70歲以上之貴賓，請主動告知。<br>
+2. 為考量旅客自身之旅遊安全及行程順暢度，並顧及同團其他團員之遊覽權益，行動不便之貴賓，需有二人以上的家人或友人同行，並經公司評估，方始接受報名。若報名付訂金後臨時告知，將收取相關必要費用，敬請見諒。<br>
+3. 重要提醒：因近來歐洲遊覽車偷竊案頻傳，為保障旅客財物安全，請旅客離開遊覽車時，貴重物品請務必隨身帶下車，盡可能不要將任何物品置留在車上，更不可將物品放置車上過夜。遊覽車司機不負保管責任，若因此有任何財物損失，旅客須自行承擔風險。<br>
+4.搭乘飛機時，請隨時扣緊安全帶，以免亂流影響安全。<br>
+5.觀光景點人潮眾多，請避免攜帶貴重物品出遊，並保持警惕留意身邊人事物<br>
+(1)如有貴重物品請託放至飯店保險箱，如需隨身攜帶切勿離手，小心扒手在身旁。<br>
+(2)切勿在公共場合露財，購物時也勿當眾清數鈔票。<br>
+(3)如遇陌生人(群)意圖接近，請盡量避開避免接觸。<br>
+6.住宿飯店時：<br>
+(1)請隨時將房門扣上安全鎖，以測安全。<br>
+(2)離開房間時，應當將貴重物品隨身攜帶，並勿在燈上晾衣物。<br>
+(3)勿在床上吸煙，聽到警報器響，請由緊急出口迅速離開。<br>
+(4)請自備盥洗用具及穿著輕便之衣物。(飯店並無全有吹風機、洗髮精、香皂；但無拖鞋、牙刷、牙膏；敬請自備)<br>
+(5)付費電視：飯店內的電視分付費及免費頻道。付費頻道需按房間號碼確認付費，才能使用！<br>
+(6)浴室地面有些未設排水口，浴盆防水簾請收到浴缸內；並請小心積水水滑，若使用不善而有淹到地毯情形，或破壞房間設施，會被飯店要求賠償，請特別注意。<br>
+7.游泳池未開放時請勿擅自入池游泳，並切記勿單獨入池。<br>
+8.搭乘船隻請務必穿著救生衣。<br>
+9.搭乘快艇請扶緊把手或坐穩，勿任意移動。<br>
+10.搭乘各項交通工具時，請勿任意更換座位，頭、手請勿伸出窗外，上下車時請注意來車方向以免發生危險。<br>
+11.搭乘纜車時請依序上下，聽從工作人員指揮。<br>
+12.團體需一起活動，途中若要離隊需徵得領隊同意以免發生意外。<br>
+13.夜間或自由活動時間若需自行外出，請告知領隊或團友，並應特別注意安全。<br>
+14.行走雪地及陡峭之路請謹慎小心。<br>
+15.遵守領隊所宣布的觀光地區、餐廳、飯店、遊樂設施等各種場所的注意事項。<br>
+16.重申歐盟加強查緝仿冒品，旅客出入境攜帶或穿著或購買仿冒商品,可處四年有期徒刑及37萬3千美金罰鍰。<br>
+17. 自2025年3月1日起，多家航空公司為確保飛航安全，規定於航程中全程禁止使用及充電行動電源。為保障您的權益，請於出發前留意各航空公司對於行動電源及電子產品之相關攜帶與使用規定。<br>
+</th>
+    </tr>
+   </thead>
+ </table>
+</div>
+<br><br>
+
+ <button id="contactBtn" class="btn btn-outline-dark rounded-3 shadow" style="color: yellow;">聯絡我們</button>
+
+
+<a href="#" class="text-warning fw-bold" id="backToTop">Top</a>
+<hr>
+<p class="fst-italic">台北市中正區重慶北路1號</p>
+<p class="fst-italic">0202394032</p>
+<hr>   
+<script>
+  const contactBtn = document.getElementById("contactBtn");
+
+    function toggleContactBtn() {
+      if (window.scrollY > 25) {
+        contactBtn.classList.add("show");
+      } else {
+        contactBtn.classList.remove("show");
+      }
+    }
+
+    // 載入完成與滾動時都檢查
+    window.addEventListener("load", toggleContactBtn);
+    window.addEventListener("scroll", toggleContactBtn);
+
+    // 你可以在這裡設定點擊行為
+   contactBtn.addEventListener("click", () => {
+    location.href = "http://127.0.0.1:5500/tourgrouporder.html";
+    });
+
+
+const backToTopBtn = document.getElementById("backToTop");
+
+    // 當頁面捲動時觸發
+    window.onscroll = function() {
+      if (document.documentElement.scrollTop > 15) {
+        backToTopBtn.style.display = "block"; // 顯示按鈕
+      } else {
+        backToTopBtn.style.display = "none"; // 隱藏按鈕
+      }
+    };
+
+    // 點擊後平滑回到最上面
+    backToTopBtn.addEventListener("click", function(e) {
+      e.preventDefault(); // 防止預設跳轉
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+</script>
+
+
+</body>
+</html>

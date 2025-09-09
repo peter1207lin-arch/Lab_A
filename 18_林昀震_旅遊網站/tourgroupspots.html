@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>景點</title>
+     <link rel="iconofourgrouplogo" href="./82038251-075E-40B9-9C1F-00B631837A95.PNG">
+    <link rel="stylesheet" href="./bootstrap.css">
+    <link rel="stylesheet" href="./bootstrap.bundle.js">
+    <link rel="stylesheet" href="./bootstrap.bundle.min.js"> 
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+
+
+   /* 自訂按鈕：平常黃底黑字，無邊框 */
+.navbar .btn-custom {
+      background-color: #e5e5c4;
+      color: black;
+      border: none;
+      margin-left: 5px;
+}
+    /* 滑過：背景稍微深一點 */
+.navbar .btn-custom:hover {
+      background-color: #dcd3b2;
+      color: black;
+}
+    /* 點擊(active)時才出現黑邊框 */
+.navbar .btn-custom:active,
+.navbar .btn-custom:focus {
+      border: 2px solid #dcd3b2;
+      box-shadow: none; /* 去掉 Bootstrap 預設藍色外框 */
+}
+
+
+body {
+height: 100vh;
+margin: 0;
+}
+.sidebar {
+width: 150px;
+background-color: #e5e5c4;
+border-right: 1px solid #e5e5c4;
+border-radius: 13px;
+border: 1px solid #e5e5c4; /* 整個選單最外層黑色邊框 */
+padding: 1px; /* 可選，增加內距 */
+      
+    }
+.black-text {
+    color: #000000;  /* 最黑 */
+    font-weight: bold; /* 可選：讓文字更明顯 */
+}
+
+
+.content {
+flex-grow: 1;
+padding: 10px;
+    }
+.menu-btn {
+margin-bottom: 10px;
+width: 95%;
+      
+}
+img {
+max-width: 60%;
+border-radius: 13px;
+margin:10px 5px 5px 5px ;
+}
+
+#displayArea {
+  text-align: center;
+  margin: 20px auto;
+  /* max-width: 150%; */
+  margin-left: 17%; /* 調整這裡，數字越大越往右 */
+  opacity: 1;
+  transition: opacity 0.8s ease-in-out;
+}
+
+
+#contactBtn {
+      position: fixed;
+      right: 18px;
+      top: 60vh;              /* 視窗高度的 60% */
+      transform: translateY(-50%);
+      padding: 10px 5px;     /* 你指定的樣式 */
+      width: 50px;
+      font-size: 16px;
+      z-index: 1050;          /* 高於一般內容 */
+      opacity: 0;             /* 初始隱藏 */
+      pointer-events: none;   /* 隱藏時不能點 */
+      transition: opacity .25s ease;
+      writing-mode: vertical-rl;  /* 直排文字像側邊籤 */
+      text-orientation: mixed;
+}
+#contactBtn.show {
+      opacity: 1;
+      pointer-events: auto;
+
+}
+
+#backToTop {
+position: fixed;
+bottom: 20px;   
+right: 20px;    
+text-decoration: none; 
+background: black;      
+padding: 10px 10px;     
+border-radius: 7px;    
+}
+
+
+
+#backToTop:hover {
+background: orange;     
+color: white;
+}
+
+body {
+  position: relative;   /* 設定定位，讓 ::before 可以絕對定位 */
+  min-height: 100vh;    /* 確保頁面高度 */
+  margin: 0;
+  z-index: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;      /* 固定在視窗，不會跟文字一起滾動 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(./airplane.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.1;         /* 透明度 10%，像浮水印 */
+  z-index: -1;           /* 放到文字後面 */
+}
+    
+</style>
+
+</head>
+<body>
+<nav class="navbar fixed-top navbar-expand-lg" style="background-color: #e5e5c4; opacity: 0.7;">
+  <div class="container-fluid">
+    <!-- 左側公司名稱 -->
+    <button class="navbar-brand fw-bold btn btn-custom black-text" onclick="location.href='http://127.0.0.1:5500/tourgrouptheme.html'">123YES TOUR</button>
+
+    <!-- 右側按鈕（改成連結外部網址） -->
+    <div class="d-flex ms-auto">
+      <button class="btn btn-custom black-text" onclick="location.href='http://127.0.0.1:5500/tourgroupspots.html'">景點</button>
+      <button class="btn btn-custom black-text" onclick="location.href='http://127.0.0.1:5500/tourgroupitinerary.html'">旅程規劃</button>
+      <button class="btn btn-custom black-text" onclick="location.href='http://127.0.0.1:5500/tourgrouporder.html'">聯絡表單</button>
+      <button class="btn btn-custom black-text" onclick="location.href='http://127.0.0.1:5500/tourgroupaboutus.html'">Q&A</button>
+    </div>
+  </div>
+</nav>
+<br><br><br>
+
+<div class="d-flex h-90">
+    
+    <!-- 左側選單 -->
+    <div class="sidebar d-flex position-fixed flex-column p-3">
+      <button class="btn btn-outline-dark menu-btn fw-bold" onclick="showContent(1)">鐘樓</button>
+      <button class="btn btn-outline-dark menu-btn fw-bold" onclick="showContent(2)">教堂</button>
+      <button class="btn btn-outline-dark menu-btn fw-bold" onclick="showContent(3)">城堡</button>
+      <button class="btn btn-outline-dark menu-btn fw-bold" onclick="showContent(4)">小鎮</button>
+      <button class="btn btn-outline-dark menu-btn fw-bold" onclick="showContent(5)">酒廠</button>
+      <button class="btn btn-outline-dark menu-btn fw-bold" onclick="showContent(6)">博物館</button>
+    </div>
+    
+    <!-- 右側內容 -->
+    <div class="content">
+      <div id="displayArea" class="text-center">
+        <h3 style="font-family: 'DFKai-sb', '標楷體', serif;">請點選左側選單</h3>
+        
+      </div>
+    </div>
+    
+  </div>
+<button id="contactBtn" class="btn btn-outline-dark rounded-3 shadow " style="color: yellow;">
+    聯絡我們
+  </button>
+
+
+<a href="#" class="text-warning fw-bold" id="backToTop">Top</a>
+
+
+  
+<br><br>
+<script>
+
+const contents = {
+  1: {
+    title: "<br>布拉格老城天文鐘<br>",
+    text: "<br>老城天文鐘位於設立14世紀，是布拉格舊城區的一個重要地標。<p>在每天整點時，遊客可以看到鐘樓上的時鐘表演，其中包括半透明的教堂窗戶<p>開啟，並出現12門徒的雕像，是布拉格最受歡迎的觀光活動之一。<br>",
+    img: "./theclock.jpg"
+  },
+  2: {
+    title: "<br>人骨教堂<br>",
+    text: "<br>人骨教堂，人骨教堂以其獨特的裝飾方式而聞名，這些裝飾由數以千計的人骨<p>和骷髏組成。 人骨教堂建於13世紀，最初是一座羅馬天主教教堂，位於一個<p>本篤會修道院的附屬墓地上。後來，由於塞德列茨墓地收容了大量的屍體，<p>教堂的地下室成為了一個實用的骨骼儲藏所。在18世紀，一名僧侶負責將教堂<p>地下室中的數千具骨骸整理並裝飾，創造出獨特而奇特的骨骼裝飾。這些裝飾<p>包括一座巨大的骨骼吊燈、骨骼曲線、大天使的翅膀，以及其他形形色色的藝<p>術品，全部由人骨和骷髏組成。 <br>",
+    img: "./thechurch.webp"
+    
+  },
+  3: {
+    title: "<br>庫倫洛夫城堡<br>",
+    text: " <br>庫倫洛夫城堡是捷克共和國南部的一個歷史悠久且壯觀的城堡，也是該國最大的<p>城堡之一，坐落在南波希米亞州維爾塔瓦河（Vltava River）的一個峭壁上，被<p>聯合國教科文組織列為世界文化遺產。<br>",
+    img: "./thecastle.jpg"
+  },
+  4: {
+    title: "<br>羅騰堡老城<br>",
+    text: "<br>這個城鎮的市中心保留著許多中世紀建築，有著狹窄的街道、石板路和古老的<p>房屋，展現出迷人的古老氛圍。市中心廣場上有市政廳和一些古老的教堂，其中<p>最著名的是聖雅各教堂。<br>",
+    img: "./thetown.webp"
+  },
+  5: {
+    title: "<br>皮爾森啤酒廠<br>",
+    text: "<br>皮爾森啤酒廠（Pilsner Urquell Brewery）位於捷克共和國皮爾森（Pilsen）的<p>一家著名啤酒廠，也是世界上最早生產、經典的 Pilsner 啤酒的誕生地。皮爾森<p>啤酒廠成立於1842 年，當時的皮爾森是奧地利帝國的一部分。這家啤酒廠的創<p>始人是 Brewmaster Josef Groll，他使用了新的底發酵工藝，製作出了一種新型<p>的金黃色啤酒，這就是今天全球廣泛認識的「Pilsner」啤 酒的起源。<br>",
+    img: "./beerfactory.jpg"
+  },
+  6: {
+    title: "<br>紐倫堡國家社會主義紀念館<br>",
+    text: "<br>紐倫堡在二戰時期曾是納粹黨集會的地方，這個紀念館展示了納粹黨的歷史，以<p>及紐倫堡審判的相關內容。這是一個重要的歷史場所，可以讓遊客了解這段黑暗<p>歷史。<br>",
+    img: "./statememorialofnationalsocialist.webp"
+  }
+};
+
+function showContent(num) {
+  const data = contents[num];
+  const area = document.getElementById("displayArea");
+
+  // 先淡出
+  area.style.opacity = 0;
+
+  // 等待淡出完成再換內容
+  setTimeout(() => {
+    area.innerHTML = `
+      <div style="font-family: 'DFKai-sb', '標楷體', serif; text-align: center;">
+        <h3>${data.title}</h3>
+        <img src="${data.img}" alt="圖片${num}">
+        <div style="text-align: left; margin: 10px auto; max-width: 600px;">
+          <p>${data.text}</p>
+        </div>
+      </div>
+    `;
+    // 再淡入
+    area.style.opacity = 1;
+    // 捲動到最上方（平滑效果）
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, 1000); // 與 CSS transition 時間一致
+}
+
+  const contactBtn = document.getElementById("contactBtn");
+
+    function toggleContactBtn() {
+      if (window.scrollY > 25) {
+        contactBtn.classList.add("show");
+      } else {
+        contactBtn.classList.remove("show");
+      }
+    }
+
+    // 載入完成與滾動時都檢查
+    window.addEventListener("load", toggleContactBtn);
+    window.addEventListener("scroll", toggleContactBtn);
+
+    // 你可以在這裡設定點擊行為
+    contactBtn.addEventListener("click", () => {
+    location.href = "http://127.0.0.1:5500/tourgrouporder.html";
+    });
+
+
+const backToTopBtn = document.getElementById("backToTop");
+
+    // 當頁面捲動時觸發
+    window.onscroll = function() {
+      if (document.documentElement.scrollTop > 15) {
+        backToTopBtn.style.display = "block"; // 顯示按鈕
+      } else {
+        backToTopBtn.style.display = "none"; // 隱藏按鈕
+      }
+    };
+
+    // 點擊後平滑回到最上面
+    backToTopBtn.addEventListener("click", function(e) {
+      e.preventDefault(); // 防止預設跳轉
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+    
+    
+</body>
+</html>

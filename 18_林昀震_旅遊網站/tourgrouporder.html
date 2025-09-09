@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query</title>
+    <link rel="iconofourgrouplogo" href="./82038251-075E-40B9-9C1F-00B631837A95.PNG">
+    <link rel="stylesheet" href="./bootstrap.css">
+    <link rel="stylesheet" href="./bootstrap.bundle.js">
+    <link rel="stylesheet" href="./bootstrap.bundle.min.js"> 
+    
+
+    <style>
+
+/* 自訂按鈕：平常黃底黑字，無邊框 */
+   /* 自訂按鈕：平常黃底黑字，無邊框 */
+    .navbar .btn-custom {
+      background-color: #e5e5c4;
+      color: black;
+      border: none;
+      margin-left: 5px;
+    }
+    /* 滑過：背景稍微深一點 */
+    .navbar .btn-custom:hover {
+      background-color: #dcd3b2;
+      color: black;
+    }
+    /* 點擊(active)時才出現黑邊框 */
+    .navbar .btn-custom:active,
+    .navbar .btn-custom:focus {
+      border: 2px solid #dcd3b2;
+      box-shadow: none; /* 去掉 Bootstrap 預設藍色外框 */
+    }
+
+.black-text {
+    color: #000000;  /* 最黑 */
+    font-weight: bold; /* 可選：讓文字更明顯 */
+}
+
+
+
+.intro {
+  font-family: "KaiTi", "標楷體", serif;
+  font-size: 20px;
+  font-style: italic; /* 斜體 */
+  color: black;     /* 深紅色 */
+}
+
+form,
+form label,
+form input,
+form select,
+form textarea {
+    font-family: "標楷體", "KaiTi", serif; /* 標楷體 */
+    color: black;                           /* 黑色文字 */
+}
+
+p {
+margin: 3px; font-size: 8px; text-align: center;
+}
+      
+#backToTop {
+position: fixed;
+bottom: 20px;   
+right: 20px;    
+text-decoration: none; 
+background: black;      
+padding: 10px 10px;     
+border-radius: 7px;    
+}
+
+#backToTop:hover {
+background: orange;     
+color: white;
+}
+
+body {
+  position: relative;   /* 設定定位，讓 ::before 可以絕對定位 */
+  min-height: 100vh;    /* 確保頁面高度 */
+  margin: 0;
+  z-index: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;      /* 固定在視窗，不會跟文字一起滾動 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(./airplane.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.1;         /* 透明度 10%，像浮水印 */
+  z-index: -1;           /* 放到文字後面 */
+}
+</style>
+
+
+</head>
+<body class="bg-light">
+
+<nav class="navbar fixed-top navbar-expand-lg" style="background-color: #e5e5c4; opacity: 0.7;">
+  <div class="container-fluid">
+    <!-- 左側公司名稱 -->
+    <button class="navbar-brand fw-bold btn btn-custom black-text" onclick="location.href='http://127.0.0.1:5500/tourgrouptheme.html'">123YES TOUR</button>
+
+    <!-- 右側按鈕（改成連結外部網址） -->
+    <div class="d-flex ms-auto">
+      <button class="btn btn-custom black-text" onclick="location.href='http://127.0.0.1:5500/tourgroupspots.html'">景點</button>
+      <button class="btn btn-custom black-text" onclick="location.href='http://127.0.0.1:5500/tourgroupitinerary.html'">旅程規劃</button>
+      <button class="btn btn-custom black-text" onclick="location.href='http://127.0.0.1:5500/tourgrouporder.html'">聯絡表單</button>
+      <button class="btn btn-custom black-text" onclick="location.href='http://127.0.0.1:5500/tourgroupaboutus.html'">Q&A</button>
+    </div>
+  </div>
+</nav>
+
+  
+<br><br><br><br>
+
+<strong class="intro">歡迎參加我們123YES Tour的行程</strong>
+<br>
+<strong class="intro">請透過以下方式聯繫我們</strong>
+<br><br><br>
+<h3 class="fw-bold text-center">聯絡表單</h3>
+<br><br>
+<form id="contactForm" class="bg-transparent border border-2  shadow-lg rounded-4 mx-auto card-body p-4" style="max-width: 500px;">
+    
+    <br>
+        <label for="guestname">姓名:</label>
+        <input type="text" id="guestname" class="form-control w-50 form-control rounded-pill">
+         <br><br>
+        <label for="gphone">電話:</label>
+        <input type="tel" id="gphone" class="form-control w-50 form-control rounded-pill">
+        <br><br>
+    <label for="start">出發日期：</label>
+    <input type="date" id="start" name="start" class="form-control w-50 form-control rounded-pill">
+<br><br>
+        <label for="gday">天數:</label> 
+        <select name="howmanydays" id="gday" class="form-select w-50 form-control rounded-pill">
+        <option value="underfourdays">4日以下</option>
+        <option value="fivedays">5日</option>
+        <option value="sixdays">6日</option>
+        <option value="sevendays">7日</option>
+        <option value="surpasseightdays">8日以上</option>
+     </select>
+<br><br>
+同行者:
+        <input type="radio" id="single" name="accompany">
+      <label for="single">無同行者</label>
+
+        <input type="radio" id="aone" name="accompany">
+       <label for="aone">1人</label>
+
+       <input type="radio" id="atwo" name="accompany">
+       <label for="atwo">2人</label>
+
+      <input type="radio" id="athree" name="accompany">
+       <label for="athree">3人以上</label>
+
+     <br><br>
+     <label for="gbudget">預算:</label> 
+        <select name="howmuchbudget" id="gbudget" class="form-select w-50 form-control rounded-pill">
+        <option value="budgettrip">20000~30000</option>
+        <option value="economy">30000~40000</option>
+        <option value="premiumeconomy">40000~50000</option>
+        <option value="business">60000~70000</option>
+        <option value="firstclass">80000以上</option>
+</select>
+        <br><br>
+
+        <label for="tips">特別需求:</label>
+        <input type="text" id="tips" class="form-control w-50 form-control rounded-pill">
+
+        <br><br>
+        <!-- 確認按鈕 -->
+         <div class="d-grid gap-4 mt-3" style="max-width: 500px; margin: 30px auto;"></div>
+        <button type="button" class="btn btn-primary rounded-pill" onclick="confirmOrder()">確認</button>
+        <button type="button" id="clearBtn" class="btn btn-outline-secondary rounded-pill shadow-sm">清除資料</button>
+        </div>
+</form>
+
+<a href="#" class="text-warning fw-bold" id="backToTop">Top</a>
+<hr>
+<p class="fst-italic">台北市中正區重慶北路1號</p>
+<p class="fst-italic">0202394032</p>
+<hr>
+
+<script>
+
+ document.getElementById("clearBtn").addEventListener("click", function () {
+    if (confirm("確定要清除所有已填寫的資料嗎？")) {
+      document.getElementById("contactForm").reset();
+    }
+  });
+function confirmOrder() {
+  const form = document.getElementById("contactForm");
+  const inputs = form.querySelectorAll("input, select, textarea");
+  let allFilled = true;
+
+  inputs.forEach(input => {
+    if (input.type === "checkbox" || input.type === "radio") {
+      // 如果是單選或複選，確認至少有一個被選到
+      const group = form.querySelectorAll(`input[name="${input.name}"]`);
+      const checked = Array.from(group).some(el => el.checked);
+      if (!checked) allFilled = false;
+    } else {
+      // 其他類型檢查是否為空
+      if (!input.value.trim()) {
+        allFilled = false;
+      }
+    }
+  });
+
+  if (allFilled) {
+    alert("我們已經收到您的表單，請耐心等候客服人員聯繫，謝謝");
+  } else {
+    alert("請填完所有資料");
+  }
+}
+
+
+    const backToTopBtn = document.getElementById("backToTop");
+
+    // 當頁面捲動時觸發
+    window.onscroll = function() {
+      if (document.documentElement.scrollTop > 25) {
+        backToTopBtn.style.display = "block"; // 顯示按鈕
+      } else {
+        backToTopBtn.style.display = "none"; // 隱藏按鈕
+      }
+    };
+
+    // 點擊後平滑回到最上面
+    backToTopBtn.addEventListener("click", function(e) {
+      e.preventDefault(); // 防止預設跳轉
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+  
+    
+
+ 
+        
+</form>
+</body>
+</html>

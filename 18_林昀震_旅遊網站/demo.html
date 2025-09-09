@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>背景切換</title>
+  <style>
+    body {
+      margin: 0;
+      height: 200vh; /* 讓頁面有足夠長度可滑動 */
+      transition: background-image 0.8s ease-in-out;
+      background-image: url("https://picsum.photos/id/1015/1600/900"); /* 初始背景 */
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      
+    }
+
+    section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3rem;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <h1>首頁</h1>
+  </section>
+
+  <section id="target">
+    <h1>切換背景的標題</h1>
+  </section>
+
+  <section>
+    <h1>更多內容</h1>
+  </section>
+
+  <script>
+    const target = document.getElementById("target");
+    const originalBg = "url('https://picsum.photos/id/1015/1600/900')";
+    const newBg = "url('https://picsum.photos/id/1016/1600/900')";
+
+    window.addEventListener("scroll", () => {
+      const rect = target.getBoundingClientRect();
+
+      if (rect.top <= window.innerHeight / 2 && rect.bottom >= 0) {
+        // 當標題進入視窗中間範圍時換背景
+        document.body.style.backgroundImage = newBg;
+      } else {
+        // 回到原本背景
+        document.body.style.backgroundImage = originalBg;
+      }
+    });
+  </script>
+</body>
+</html>

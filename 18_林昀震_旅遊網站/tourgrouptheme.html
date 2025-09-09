@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>123YES TOUR</title>
+    <link rel="iconofthegrouplogo" href="./82038251-075E-40B9-9C1F-00B631837A95.PNG">
+    
+    <link rel="stylesheet" href="./bootstrap.css">
+    <link rel="stylesheet" href="./navStyle.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- https://docs.google.com/presentation/d/1VKAGzKoNWpnS6SzfFVo5nXhNEYCyAnJv/edit?slide=id.p7#slide=id.p7 -->
+<style>
+.carousel-frame {
+      display:inline-block;
+      padding: 10px; /* 相框厚度 */
+      background-color: black; /* 相框顏色 */
+      border-radius: 13px; /* 相框圓角 */
+      position:relative;
+      max-width: 65%;
+      margin:0px 50px 10px 90px;
+    
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3)
+      transition: box-shadow 0.3s ease;
+       overflow: hidden;
+       width: 500px;   /* 固定寬度 */
+      height: 300px;
+    }
+.carousel-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+      border-radius: 15px;
+    }
+    /* 讓箭頭顯示在相框上 */
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 5%; /* 控制箭頭區域大小 */
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: rgba(0, 0, 0, 0.6); /* 箭頭底色 */
+      border-radius: 30%;
+      padding: 11px;
+    }
+
+.carousel-frame:hover { box-shadow: 0px 12px 28px rgba(0, 0, 0, 0.5); }
+
+.carousel-frame {
+  opacity: 0;                /* 預設隱藏 */
+  transform: translateY(30px); /* 往下偏移 */
+  animation: fadeInUp 1s ease forwards; /* 1 秒淡入 + 往上移 */
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.buttonstyle {
+bottom: 20px;   
+right: 20px;    
+text-decoration: none; 
+background: yellow;      
+padding: 12px 12px;     
+border-radius: 7px; 
+font-size: large;
+margin-bottom: 100px;   
+}
+
+p {
+margin: 3px; font-size: 8px; text-align: center;
+}
+
+#backToTop {
+position: fixed;
+bottom: 20px;   
+right: 20px;    
+text-decoration: none; 
+background: black;      
+padding: 10px 10px;     
+border-radius: 7px;    
+}
+
+#backToTop:hover {
+background: orange;     
+color: white;
+}
+
+body {
+  position: relative;   /* 設定定位，讓 ::before 可以絕對定位 */
+  min-height: 100vh;    /* 確保頁面高度 */
+  margin: 0;
+  z-index: 0;
+}
+
+body::before {
+  content: "thegrouplogo";
+  position: fixed;      /* 固定在視窗，不會跟文字一起滾動 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(./82038251-075E-40B9-9C1F-00B631837A95.PNG);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.13;         /* 透明度 10%，像浮水印 */
+  z-index: -1;           /* 放到文字後面 */
+}
+
+</style>
+
+</head>
+
+<body>
+<h1 class="text-align text-warning fw-bold" onclick="location.href='http://127.0.0.1:5500/tourgrouptheme.html'">123YES</h1>
+<h2 class="text-align text-dark fw-bold" onclick="location.href='http://127.0.0.1:5500/tourgrouptheme.html'" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TOUR</h2>
+<div>
+<div class="carousel-frame col-10">
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+      <div class="carousel-inner">
+        <!-- 第一張圖片 -->
+        <div class="carousel-item active">
+          <img src="./Prague_07-2016_Old_Town_Square_img2.jpg" class="d-block w-100" alt="圖片1">
+        </div>
+        <!-- 第二張圖片 -->
+        <div class="carousel-item">
+          <img src="./randomtown1.jpg" class="d-block w-100" alt="圖片2">
+        </div>
+        <!-- 第三張圖片 -->
+        <div class="carousel-item">
+          <img src="./carnival.jpg" class="d-block w-100" alt="圖片3">
+        </div>
+      </div>
+
+      <!-- 左右控制箭頭 -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">上一張</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">下一張</span>
+        <div class="col-2">
+
+     </div>
+    
+   </div>
+  </div>
+    <button class="btn btn-warning fw-bold buttonstyle"  onclick="scrollToBottom()">出發</button>
+</div>
+
+<!-- Bootstrap JS (含 Popper.js) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<nav>
+        <ul class="navBar" >
+            <li><a href="http://127.0.0.1:5500/tourgroupspots.html">景點</a></li>
+             <li><a href="http://127.0.0.1:5500/tourgroupitinerary.html">旅程規劃</a></li>
+            <li><a href="http://127.0.0.1:5500/tourgrouporder.html">聯絡表單</a></li>
+            <li><a href="http://127.0.0.1:5500/tourgroupaboutus.html">Q&A</a></li>
+
+        </ul>
+</nav>
+
+<p class="fst-italic">台北市中正區重慶北路1號</p>
+<p class="fst-italic">0202394032</p>
+<hr>
+
+<a href="#" class="text-warning fw-bold" id="backToTop">Top</a>
+
+<script>
+
+  function scrollToBottom() {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth' // 平滑滑動
+    });
+  }
+ 
+    const backToTopBtn = document.getElementById("backToTop");
+
+    // 當頁面捲動時觸發
+    window.onscroll = function() {
+      if (document.documentElement.scrollTop > 25) {
+        backToTopBtn.style.display = "block"; // 顯示按鈕
+      } else {
+        backToTopBtn.style.display = "none"; // 隱藏按鈕
+      }
+    };
+
+    // 點擊後平滑回到最上面
+    backToTopBtn.addEventListener("click", function(e) {
+      e.preventDefault(); // 防止預設跳轉
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>

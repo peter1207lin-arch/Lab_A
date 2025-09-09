@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="iconofourgrouplogo" href="./82038251-075E-40B9-9C1F-00B631837A95.PNG">
+    <link rel="stylesheet" href="./bootstrap.css">
+    <link rel="stylesheet" href="./bootstrap.bundle.js">
+    <link rel="stylesheet" href="./bootstrap.bundle.min.js"> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+
+    <style>
+
+  .navbar .btn-custom {
+      background-color: #e5e5c4;
+      color: black;
+      border: none;
+      margin-left: 5px;
+    }
+    /* 滑過：背景稍微深一點 */
+    .navbar .btn-custom:hover {
+      background-color: #dcd3b2;
+      color: black;
+    }
+    /* 點擊(active)時才出現黑邊框 */
+    .navbar .btn-custom:active,
+    .navbar .btn-custom:focus {
+      border: 2px solid #dcd3b2;
+      box-shadow: none; /* 去掉 Bootstrap 預設藍色外框 */
+    }
+
+.black-text {
+    color: #000000;  /* 最黑 */
+    font-weight: bold; /* 可選：讓文字更明顯 */
+}
+
+p {
+margin: 3px; font-size: 8px; text-align: center;
+}
+
+#contactBtn {
+      position: fixed;
+      right: 18px;
+      top: 60vh;              /* 視窗高度的 60% */
+      transform: translateY(-50%);
+      padding: 10px 5px;     /* 你指定的樣式 */
+      width: 50px;
+      font-size: 16px;
+      z-index: 1050;          /* 高於一般內容 */
+      opacity: 0;             /* 初始隱藏 */
+      pointer-events: none;   /* 隱藏時不能點 */
+      transition: opacity .25s ease;
+      writing-mode: vertical-rl;  /* 直排文字像側邊籤 */
+      text-orientation: mixed;
+}
+#contactBtn.show {
+      opacity: 1;
+      pointer-events: auto;
+
+}
+    
+#backToTop {
+position: fixed;
+bottom: 20px;   
+right: 20px;    
+text-decoration: none; 
+background: black;      
+padding: 10px 10px;     
+border-radius: 7px;    
+}
+
+#backToTop:hover {
+background: orange;     
+color: white;
+}
+
+body {
+  position: relative;   /* 設定定位，讓 ::before 可以絕對定位 */
+  min-height: 100vh;    /* 確保頁面高度 */
+  margin: 0;
+  z-index: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;      /* 固定在視窗，不會跟文字一起滾動 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(./82038251-075E-40B9-9C1F-00B631837A95.PNG);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.06;         /* 透明度 10%，像浮水印 */
+  z-index: -1;           /* 放到文字後面 */
+}
+</style>
+
+
+</head>
+<body>
+
+<nav class="navbar fixed-top navbar-expand-lg" style="background-color: #e5e5c4; opacity: 0.7;">
+  <div class="container-fluid">
+    <!-- 左側公司名稱 -->
+    <button class="navbar-brand fw-bold btn btn-custom black-text" onclick="location.href='http://127.0.0.1:5500/tourgrouptheme.html'">123YES TOUR</button>
+
+    <!-- 右側按鈕（改成連結外部網址） -->
+    <div class="d-flex ms-auto">
+      <button class="btn btn-custom black-text" onclick="location.href='http://127.0.0.1:5500/tourgroupspots.html'">景點</button>
+      <button class="btn btn-custom black-text" onclick="location.href='http://127.0.0.1:5500/tourgroupitinerary.html'">旅程規劃</button>
+      <button class="btn btn-custom black-text" onclick="location.href='http://127.0.0.1:5500/tourgrouporder.html'">聯絡表單</button>
+      <button class="btn btn-custom black-text" onclick="location.href='http://127.0.0.1:5500/tourgroupaboutus.html'">Q&A</button>
+    </div>
+  </div>
+</nav>
+
+<br><br><br><br>
+<h3 style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">關於我們</h3>
+<br><br><br>
+  <h6 style="text-align: center; font-family: cursive; font-size: medium;">我曾經在旅行社工作，因此想嘗試透過網頁呈現。</h6>
+<br><br><br>
+<section id="map" class="py-4">
+  <div class="container text-center">
+  <h3 style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">我們的位置</h3>
+    <br><br><br>
+    <!-- Google 地圖 iframe -->
+    <div class="ratio ratio-16x9 container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.661601534418!2d14.419740115717706!3d50.08746537942661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b94e0a302e8ef%3A0xe7b6f2b5ef675d14!2sOld%20Town%20Square!5e0!3m2!1szh-TW!2stw!4v1693900000000!5m2!1szh-TW!2stw" 
+        width="300" 
+        height="150" 
+        style="border:20px;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+<br><br><br><br>
+<section id="qa" class="py-4">
+  <div class="container"> <!-- Bootstrap container -->
+    <h3 style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">常見問題</h3>
+    <br><br>
+    <div class="row justify-content-center">
+      <div class="col-md-8"> 
+        <div class="accordion-collapse bg-transparent border border-2  shadow-lg rounded-4 mx-auto card-body p-4 " style="font-family: cursive;" id="qaAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#answerOne" aria-expanded="true" aria-controls="answerOne">
+                Q1：旅遊費用包含哪些？
+              </button>
+            </h2>
+            <div id="answerOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#qaAccordion">
+              <div class="accordion-body">
+                旅遊費用包含交通、住宿、導遊服務以及部分餐食，詳細內容請參考行程表。
+              </div>
+            </div>
+          </div>
+          <br><br>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#answerTwo" aria-expanded="false" aria-controls="answerTwo">
+                Q2：可以取消或更改行程嗎？
+              </button>
+            </h2>
+            <div id="answerTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#qaAccordion">
+              <div class="accordion-body">
+                若需取消或更改行程，請於出發前至少 7 天通知，本公司將依規定收取必要手續費。
+              </div>
+            </div>
+          </div>
+          <br><br>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#answerThree" aria-expanded="false" aria-controls="answerThree">
+                Q3：行程中是否包含保險？
+              </button>
+            </h2>
+            <div id="answerThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#qaAccordion">
+              <div class="accordion-body">
+                行程費用已包含基本旅遊責任險，若需額外旅遊平安險，建議旅客自行投保以增加保障。
+              </div>
+            </div>
+          </div>
+          <br><br>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+              <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#answerFour" aria-expanded="false" aria-controls="answerFour">
+                Q4：旅遊途中需要自備什麼？
+              </button>
+            </h2>
+            <div id="answerFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#qaAccordion">
+              <div class="accordion-body">
+                建議攜帶個人藥品、保暖衣物、充電設備以及旅遊文件（護照、簽證等）。
+              </div>
+            </div>
+          </div>
+          <br><br>
+            <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFive">
+              <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#answerFive" aria-expanded="false" aria-controls="answerFive">
+                Q5：行程中的餐食如何安排？
+              </button>
+            </h2>
+            <div id="answerFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#qaAccordion">
+              <div class="accordion-body">
+                行程中將包含部分當地特色餐食，若有特殊飲食需求，請提前告知以便安排。
+              </div>
+            </div>
+          </div>
+          <br><br>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSix">
+              <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#answerSix" aria-expanded="false" aria-controls="answerSix">
+                Q6：行程途中是否有自由活動時間？
+              </button>
+            </h2>
+            <div id="answerSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#qaAccordion">
+              <div class="accordion-body">
+                行程中會安排部分自由活動時段，旅客可以自行探索當地景點或購物，但請務必留意集合時間。
+              </div>
+            </div>
+          </div>
+        </div> <!-- accordion -->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<button id="contactBtn" class="btn btn-outline-dark rounded-3 shadow" style="color: yellow;">聯絡我們</button>
+
+<a href="#" class="text-warning fw-bold" id="backToTop">Top</a>
+<hr>
+<p class="fst-italic">台北市中正區重慶北路1號</p>
+<p class="fst-italic">0202394032</p>
+<hr>
+
+<script>
+  const contactBtn = document.getElementById("contactBtn");
+
+    function toggleContactBtn() {
+      if (window.scrollY > -1) {
+        contactBtn.classList.add("show");
+      } else {
+        contactBtn.classList.remove("show");
+      }
+    }
+
+    // 載入完成與滾動時都檢查
+    window.addEventListener("load", toggleContactBtn);
+    window.addEventListener("scroll", toggleContactBtn);
+
+    // 你可以在這裡設定點擊行為
+   contactBtn.addEventListener("click", () => {
+    location.href = "http://127.0.0.1:5500/tourgrouporder.html";
+    });
+
+
+    const backToTopBtn = document.getElementById("backToTop");
+
+    // 當頁面捲動時觸發
+    window.onscroll = function() {
+      if (document.documentElement.scrollTop > 15) {
+        backToTopBtn.style.display = "block"; // 顯示按鈕
+      } else {
+        backToTopBtn.style.display = "none"; // 隱藏按鈕
+      }
+    };
+
+    // 點擊後平滑回到最上面
+    backToTopBtn.addEventListener("click", function(e) {
+      e.preventDefault(); // 防止預設跳轉
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+
+</body>
+</html>
